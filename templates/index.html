@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Diário</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #4a4a4a;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+        .header .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .header .title {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+        }
+        .header .subtitle {
+            font-size: 14px;
+        }
+        .header .user-menu {
+            position: relative;
+        }
+        .header .user-menu img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+        .header .user-menu .dropdown {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 150px;
+            text-align: center;
+        }
+        .header .user-menu .dropdown a {
+            display: block;
+            color: black;
+            text-decoration: none;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .header .user-menu .dropdown a:hover {
+            text-decoration: underline;
+        }
+        .header .user-menu:hover .dropdown {
+            display: block;
+        }
+        .content {
+            display: flex;
+            align-items: center;
+            padding: 50px;
+            min-height: 500px; /* Aumenta o tamanho da área branca */
+            overflow-x: auto; /* Adiciona rolagem horizontal */
+            flex-wrap: nowrap;
+        }
+        .card {
+            background-color: #4a4a4a;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 150px;
+            flex-shrink: 0;
+        }
+        .card .date {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .card .button {
+            background-color: #b0b0b0;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .arrow {
+            font-size: 48px;
+            color: #4a4a4a;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        footer {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #7a7a7a;
+            padding: 20px;
+            color: white;
+        }
+        .contact-info h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .logo {
+            text-align: right;
+        }
+        .logo img {
+            width: 100px;
+            height: 125px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <div class="header">
+        <div class="logo">
+            <img alt="Book icon" src="https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-open-a-children-diary-icon-png-image_4985063.png" width="40"/>
+            <div>
+                <div class="title">Diario</div>
+                <div class="subtitle">Registrando memórias, um dia de cada vez.</div>
+            </div>
+        </div>
+        <div class="user-menu">
+            <img alt="User icon" src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" width="40"/>
+            <div class="dropdown">
+                <a href="{{ url_for('cadastro') }}">CADASTRAR</a>
+                <a href="{{ url_for('login') }}">LOGAR</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div style="display: flex; align-items: center;">
+        <div class="content" id="carousel">
+            <div class="card">
+                <div>Dia</div>
+                <div class="date">04/09/2006</div>
+                <a href="{{ url_for('adicionar_anotacao', data='04-09-2006') }}">
+                    <button class="button">clique aqui</button>
+                </a>
+            </div>
+            <div class="card">
+                <div>Dia</div>
+                <div class="date">05/09/2006</div>
+                <a href="{{ url_for('adicionar_anotacao', data='05-09-2006') }}">
+                    <button class="button">clique aqui</button>
+                </a>
+            </div>
+            <div class="card">
+                <div>Dia</div>
+                <div class="date">06/09/2006</div>
+                <a href="{{ url_for('adicionar_anotacao', data='06-09-2006') }}">
+                    <button class="button">clique aqui</button>
+                </a>
+            </div>
+            <div class="card">
+                <div>Dia</div>
+                <div class="date">07/09/2006</div>
+                <a href="{{ url_for('adicionar_anotacao', data='07-09-2006') }}">
+                    <button class="button">clique aqui</button>
+                </a>
+            </div>
+            <div class="card">
+                <div>Dia</div>
+                <div class="date">08/09/2006</div>
+                <a href="{{ url_for('adicionar_anotacao', data='08-09-2006') }}">
+                    <button class="button">clique aqui</button>
+                </a>
+            </div>
+            <div class="card">
+                <div>Dia</div>
+                <div class="date">09/09/2006</div>
+                <a href="{{ url_for('adicionar_anotacao', data='09-09-2006') }}">
+                    <button class="button">clique aqui</button>
+                </a>
+            </div>
+        </div>
+        <div class="arrow" id="nextArrow">
+            <i class="fas fa-arrow-right"></i>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="contact-info">
+                <h2>FALE CONOSCO</h2>
+                <p>(04) 298 3985 2092</p>
+                <p>+76 209 1092 4095</p>
+                <p><a href="mailto:info@ifcc.com">info@ifcc.com</a></p>
+            </div>
+            <div class="logo">
+                <img alt="Instituto Federal Catarinense Logo" src="{{ url_for('static', filename='ifc.png') }}" />
+            </div>
+        </div>         
+    </footer>
+    
+</body>
+</html>
